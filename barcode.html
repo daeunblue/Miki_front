@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR/바코드 인식</title>
+</head>
+<body>
+  <div id="wrap">
+    <div class="title-container">
+      <button class="go-prev">&lt;</button>
+      <h1 class="title">주문/결제</h1>  
+    </div>
+    <div class="text_container">결제 QR또는 바코드를<br><span style="color: red;">빨간색 네모</span>안에 보여주세요. </div>
+    <div class="cam-container">
+      <video id="video" width="200" height="200"></video><!--웹캠 왜 안되는지??-->
+    </div>
+</body>
+<script>
+  var video = document.querySelector("#video");    
+  function startVideo() {
+    navigator.getUserMedia(
+      { video: {} },
+      stream => video.srcObject = stream,
+      err => console.error(err)
+    )
+  }
+  </script>
+</html>
